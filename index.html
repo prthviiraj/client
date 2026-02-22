@@ -1,0 +1,3014 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umate Maths Classes | Latur</title>
+    <meta name="description" content="Umate Maths Classes — Premier Polytechnic & Engineering coaching in Latur.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        /* THEME VARIABLES */
+        [data-theme="dark"] {
+            --red: #e63946;
+            --red-dark: #b5202d;
+            --red-glow: rgba(230, 57, 70, 0.35);
+            --bg: #0d0d0f;
+            --bg2: #141417;
+            --bg3: #1a1a1f;
+            --card: #1e1e25;
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #f0f0f5;
+            --muted: #9090a8;
+            --shadow: rgba(0, 0, 0, 0.4);
+            --hbg: rgba(13, 13, 15, 0.65);
+            --hbgs: rgba(13, 13, 15, 0.92);
+        }
+
+        [data-theme="light"] {
+            --red: #d62839;
+            --red-dark: #a01020;
+            --red-glow: rgba(214, 40, 57, 0.22);
+            --bg: #f8f8fc;
+            --bg2: #eeeef5;
+            --bg3: #e4e4ef;
+            --card: #ffffff;
+            --border: rgba(0, 0, 0, 0.09);
+            --text: #18181c;
+            --muted: #5a5a72;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --hbg: rgba(248, 248, 252, 0.8);
+            --hbgs: rgba(248, 248, 252, 0.97);
+        }
+
+        /* BASE */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background .4s, color .4s;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--red-dark);
+            border-radius: 99px;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 12px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--hbg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background .4s, padding .35s, border-color .4s;
+        }
+
+        header.scrolled {
+            background: var(--hbgs);
+            padding: 13px 8%;
+        }
+
+        .logo-img {
+            height: 64px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .footer-logo .logo-img {
+            height: 48px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+            margin: 10px 0;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--red);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-link:hover {
+            background: var(--red);
+            color: white;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 15px var(--red-glow);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a {
+            color: var(--muted);
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: color .25s, background .25s;
+        }
+
+        nav a:hover {
+            color: var(--text);
+            background: var(--border);
+        }
+
+        .nav-cta {
+            background: var(--red) !important;
+            color: #fff !important;
+            padding: 9px 22px !important;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 18px var(--red-glow);
+        }
+
+        .nav-cta:hover {
+            background: var(--red-dark) !important;
+            transform: translateY(-1px);
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card);
+            color: var(--text);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s, transform .2s;
+            flex-shrink: 0;
+        }
+
+        .theme-btn:hover {
+            transform: rotate(20deg) scale(1.1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform .35s, opacity .25s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg2);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .35s;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            padding: 12px 40px;
+            border-radius: 12px;
+            transition: background .2s;
+            width: 280px;
+            text-align: center;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--border);
+        }
+
+        .mob-cta {
+            background: linear-gradient(135deg, var(--red-dark), var(--red)) !important;
+            color: #fff !important;
+            margin-top: 8px;
+            box-shadow: 0 6px 24px var(--red-glow);
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            font-size: 26px;
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .mobile-close:hover {
+            color: var(--text);
+            background: var(--border);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 8% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(230, 57, 70, 0.18) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(181, 32, 45, 0.12) 0%, transparent 60%), var(--bg);
+            transition: background .4s;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(127, 127, 127, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(127, 127, 127, 0.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(230, 57, 70, 0.12);
+            border: 1px solid rgba(230, 57, 70, 0.3);
+            color: #ff6b75;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 7px 18px;
+            border-radius: 99px;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--red);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(1.4);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 7vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 22px;
+            color: var(--text);
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--red), #ff7a84);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(15px, 2vw, 19px);
+            color: var(--muted);
+            max-width: 550px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--red-dark), var(--red));
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 14px;
+            box-shadow: 0 8px 32px var(--red-glow);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px var(--red-glow);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 14px;
+            background: var(--card);
+            transition: background .3s, border-color .3s;
+        }
+
+        .btn-ghost:hover {
+            background: var(--bg3);
+            border-color: var(--muted);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 64px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .stat-num span {
+            color: var(--red);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: var(--border);
+            height: 40px;
+            align-self: center;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(24px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -.8px;
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 520px;
+            margin-bottom: 56px;
+        }
+
+        /* ABOUT */
+        #about {
+            background: var(--bg2);
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+
+        .about-image-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--red), transparent, transparent);
+            z-index: 0;
+        }
+
+        .about-image-wrap img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+            filter: grayscale(15%);
+            transition: filter .4s, transform .4s;
+        }
+
+        .about-image-wrap:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.01);
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .about-text p strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .highlight-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(230, 57, 70, 0.12);
+            border: 1px solid rgba(230, 57, 70, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .highlight-text strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .highlight-text span {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* WHY */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .why-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 24px;
+            transition: transform .3s, border-color .3s, box-shadow .3s, background .4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red-dark), var(--red));
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(230, 57, 70, 0.25);
+            box-shadow: 0 12px 40px var(--shadow);
+        }
+
+        .why-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-emoji {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* GALLERY */
+        #gallery {
+            background: var(--bg2);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .7) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity .35s;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        /* QUOTE */
+        .quote-section {
+            background: linear-gradient(135deg, var(--red-dark) 0%, #8b0000 100%);
+            text-align: center;
+            padding: 100px 15%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -30px;
+            left: 5%;
+            font-size: 280px;
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, .06);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(18px, 3vw, 32px);
+            font-style: italic;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            color: rgba(255, 255, 255, .65);
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CONTACT */
+        #contact {
+            background: var(--bg);
+        }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 32px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            transition: background .4s, border-color .4s;
+        }
+
+        .info-content strong {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 2px;
+        }
+
+        .info-content span {
+            font-size: 15px;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .form-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 40px;
+            transition: background .4s, border-color .4s;
+        }
+
+        .form-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 16px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: border-color .3s, box-shadow .3s, background .4s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--muted);
+            opacity: .5;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: rgba(230, 57, 70, .5);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, .1);
+            background: var(--bg2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--red-dark), var(--red));
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity .3s, transform .3s, box-shadow .3s;
+            box-shadow: 0 4px 20px var(--red-glow);
+        }
+
+        .form-submit:hover {
+            opacity: .9;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 28px var(--red-glow);
+        }
+
+        /* MAP */
+        .map-section {
+            padding: 60px 8%;
+            background: var(--bg2);
+        }
+
+        .map-section .section-title {
+            margin-bottom: 32px;
+        }
+
+        .map-wrap {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .map-wrap iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            display: block;
+            filter: invert(85%) hue-rotate(180deg);
+        }
+
+        [data-theme="light"] .map-wrap iframe {
+            filter: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 40px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            transition: background .4s, border-color .4s;
+        }
+
+        .footer-branding {
+            text-align: center;
+            width: 100%;
+            margin: 20px 0 30px;
+        }
+
+        .footer-branding h2 {
+            font-size: clamp(40px, 10vw, 100px);
+            font-weight: 900;
+            color: var(--text);
+            opacity: 0.05;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            line-height: 1;
+            user-select: none;
+            margin: 0;
+        }
+
+        .footer-branding p {
+            color: var(--muted);
+            font-size: 14px;
+            
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:900px) {
+            nav a:not(.nav-cta) {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .about-inner,
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image-wrap {
+                max-width: 480px;
+                margin: auto;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .stat-divider {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 24px;
+            }
+        }
+
+        @media(max-width:600px) {
+            header {
+                padding: 14px 5%;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .map-section {
+                padding: 50px 5%;
+            }
+
+            .quote-section {
+                padding: 70px 8%;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px 5%;
+            }
+
+            .hero {
+                padding: 100px 5% 60px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-ghost {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .stat-num {
+                font-size: 28px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                aspect-ratio: 16/9;
+            }
+
+            .form-card {
+                padding: 24px 18px;
+            }
+
+            .contact-inner {
+                gap: 32px;
+            }
+
+            .quote-section::before {
+                font-size: 180px;
+            }
+
+            .map-wrap iframe {
+                height: 280px;
+            }
+        }
+
+        @media(max-width:380px) {
+            .logo-text {
+                display: none;
+            }
+        }
+
+        /* FAQ */
+        #faq {
+            background: var(--bg2);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color .3s, background .4s;
+        }
+
+        .faq-item.open {
+            border-color: rgba(230, 57, 70, 0.3);
+        }
+
+        .faq-q {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: color .25s;
+        }
+
+        .faq-q:hover {
+            color: var(--red);
+        }
+
+        .faq-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--red);
+            flex-shrink: 0;
+            transition: transform .35s, background .3s;
+            font-style: normal;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+            background: var(--red);
+            color: white;
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .35s ease;
+            padding: 0 24px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .faq-a.open {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+
+        /* GALLERY CAROUSEL */
+        .gallery-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            margin: 40px auto 0;
+            max-width: 85%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 28px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+            color: #fff;
+            font-size: 17px;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(230, 57, 70, 0.85);
+            border: none;
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background .25s, transform .25s;
+            backdrop-filter: blur(6px);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(230, 57, 70, 1);
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .carousel-btn.prev {
+            left: 14px;
+        }
+
+        .carousel-btn.next {
+            right: 14px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(230, 57, 70, 0.25);
+            cursor: pointer;
+            transition: background .3s, transform .3s;
+            border: none;
+        }
+
+        .carousel-dot.active {
+            background: var(--red);
+            transform: scale(1.3);
+        }
+
+        /* VIDEO SECTION */
+        #video-section {
+            position: relative;
+            padding: 80px 8%;
+            background: var(--bg2);
+            overflow: hidden;
+        }
+
+        #video-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 15% 30%, rgba(230, 57, 70, 0.09) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 45% at 85% 70%, rgba(181, 32, 45, 0.07) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        #video-section>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-inner .section-title {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .video-inner .section-sub {
+            text-align: center;
+            margin: 0 auto 36px;
+        }
+
+        .video-wrap {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(230, 57, 70, 0.15);
+        }
+
+        .video-wrap video {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+        }
+
+        @media(max-width:768px) {
+            #video-section {
+                padding: 60px 5%;
+            }
+
+            .carousel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+        }
+
+        /* MATH SYMBOLS */
+
+        .math-float {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .math-sym {
+            position: absolute;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            color: rgba(230, 57, 70, 0.14);
+            font-weight: 700;
+            user-select: none;
+            animation: mathFloat linear infinite;
+        }
+
+        @keyframes mathFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        /* FORMULA BAND */
+        .formula-band {
+            background: linear-gradient(135deg, #0d0d0f 0%, #1a0608 50%, #0d0d0f 100%);
+            border-top: 1px solid rgba(230, 57, 70, .15);
+            border-bottom: 1px solid rgba(230, 57, 70, .15);
+            padding: 32px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        [data-theme="light"] .formula-band {
+            background: linear-gradient(135deg, #1a0608 0%, #2d0a0e 50%, #1a0608 100%);
+        }
+
+        .formula-track {
+            display: flex;
+            gap: 56px;
+            align-items: center;
+            width: max-content;
+            animation: formulaScroll 28s linear infinite;
+        }
+
+        @keyframes formulaScroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .formula-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .65);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            flex-shrink: 0;
+        }
+
+        .formula-pill .sep {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--red);
+            opacity: .7;
+        }
+
+        /* CLASS FEATURES CARDS */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 52px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid rgba(230, 57, 70, 0.12);
+            border-radius: 16px;
+            padding: 28px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), #ff6b6b);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(230, 57, 70, 0.12);
+            border-color: rgba(230, 57, 70, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 34px;
+            line-height: 1;
+        }
+
+        .feature-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--red);
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-top: 4px;
+            width: fit-content;
+        }
+
+        /* VIDEO FEATURES LAYOUT */
+        .vf-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-top: 52px;
+            width: 100%;
+        }
+
+        /* Left & Right columns */
+        .vf-col {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .vf-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* Left column: text on left, dot on right */
+        .vf-left .vf-item {
+            justify-content: flex-end;
+        }
+
+        .vf-right .vf-item {
+            justify-content: flex-start;
+        }
+
+        .vf-item-text {
+            max-width: 200px;
+        }
+
+        .vf-item-text.right {
+            text-align: right;
+        }
+
+        .vf-item-text.left {
+            text-align: left;
+        }
+
+        .vf-icon {
+            font-size: 22px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .vf-item-text h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0 0 3px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .vf-item-text p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Red dot connector */
+        .vf-dot {
+            width: 10px;
+            height: 10px;
+            min-width: 10px;
+            background: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        /* Horizontal connector line from dot to video */
+        .vf-left .vf-dot::after,
+        .vf-right .vf-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1px;
+            background: linear-gradient(to right, rgba(230, 57, 70, 0.4), transparent);
+            width: 24px;
+        }
+
+        .vf-left .vf-dot::after {
+            left: 100%;
+        }
+
+        .vf-right .vf-dot::after {
+            right: 100%;
+            background: linear-gradient(to left, rgba(230, 57, 70, 0.4), transparent);
+        }
+
+        /* Center video column */
+        .vf-video-col {
+            flex: 0 0 320px;
+            padding: 0 16px;
+        }
+
+        .vf-video-wrap {
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(230, 57, 70, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.55),
+                0 0 40px rgba(230, 57, 70, 0.08);
+        }
+
+        .vf-video-wrap video {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+        }
+
+        /* Responsive */
+        @media(max-width: 900px) {
+            .vf-layout {
+                flex-direction: column;
+                gap: 36px;
+            }
+
+            .vf-col {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .vf-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .vf-item-text {
+                text-align: center !important;
+                max-width: 160px;
+            }
+
+            .vf-left .vf-dot::after,
+            .vf-right .vf-dot::after {
+                display: none;
+            }
+
+            .vf-video-col {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        /* MATH SVG SECTION */
+
+        #math-visual {
+            background: var(--bg);
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 72px;
+            flex-wrap: wrap;
+        }
+
+        .math-visual-text {
+            max-width: 420px;
+        }
+
+        .math-visual-text .section-label {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .math-concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .math-concept-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 18px;
+            transition: border-color .3s, transform .3s;
+        }
+
+        .math-concept-card:hover {
+            border-color: rgba(230, 57, 70, .3);
+            transform: translateY(-2px);
+        }
+
+        .math-concept-card .mc-sym {
+            font-size: 22px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .math-concept-card .mc-label {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+        }
+
+        .math-svg-wrap {
+            flex-shrink: 0;
+        }
+
+        @media(max-width:900px) {
+            #math-visual {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .math-visual-text {
+                max-width: 100%;
+            }
+
+            .math-svg-wrap svg {
+                width: 280px;
+                height: 280px;
+            }
+        }
+
+        /* MATH TOOLS */
+        .math-tools {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .math-tool {
+            position: absolute;
+            bottom: -120px;
+            opacity: 0;
+            animation: toolDrift linear infinite;
+        }
+
+        @keyframes toolDrift {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            8% {
+                opacity: 1;
+            }
+
+            92% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(30deg);
+                opacity: 0;
+            }
+        }
+
+        /* SECTION GRADIENTS & FLOAT INSTRUMENTS */
+        #about,
+        #why,
+        #gallery,
+        #math-visual,
+        #faq,
+        #contact,
+        .map-section,
+        .quote-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Radial gradient overlays per section - each distinctly placed */
+        #about::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 10% 20%, rgba(230, 57, 70, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 90% 80%, rgba(181, 32, 45, 0.06) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #why::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 80% 10%, rgba(230, 57, 70, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 15% 90%, rgba(181, 32, 45, 0.06) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #gallery::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 55% 45% at 50% 0%, rgba(230, 57, 70, 0.09) 0%, transparent 55%),
+                radial-gradient(ellipse 40% 35% at 85% 100%, rgba(181, 32, 45, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #math-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 20% 50%, rgba(230, 57, 70, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 45% 35% at 90% 20%, rgba(181, 32, 45, 0.07) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #faq::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 95% 50%, rgba(230, 57, 70, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 5% 30%, rgba(181, 32, 45, 0.06) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #contact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 0% 0%, rgba(230, 57, 70, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse 55% 45% at 100% 100%, rgba(181, 32, 45, 0.07) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .map-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(230, 57, 70, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Ensure section children are above the gradient */
+        #about>*,
+        #why>*,
+        #gallery>*,
+        #math-visual>*,
+        #faq>*,
+        #contact>*,
+        .map-section>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* SECTION FLOATING INSTRUMENTS */
+        .sec-float {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .sec-sym {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            color: rgba(230, 57, 70, 0.15);
+            user-select: none;
+            animation: secDrift linear infinite;
+        }
+
+
+        @keyframes secDrift {
+            0% {
+                transform: translateY(20px) rotate(-5deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-80px) rotate(8deg);
+                opacity: 0;
+            }
+        }
+
+        .sec-tool {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            animation: secToolFloat linear infinite;
+            transform-origin: center center;
+        }
+
+        @keyframes secToolFloat {
+            0% {
+                transform: scale(1.4) translateY(15px) rotate(-3deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.4) translateY(-60px) rotate(10deg);
+                opacity: 0;
+            }
+        }
+
+        /* ANIMATIONS */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose">✕</button>
+        <a href="#about" class="mob-link">About</a>
+        <a href="#why" class="mob-link">Why Us</a>
+        <a href="#gallery" class="mob-link">Gallery</a>
+        <a href="#contact" class="mob-link mob-cta">Enroll Now →</a>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header">
+        <a href="#" class="logo">
+            <img src=" logo2.png" alt="Umate Maths Classes Logo" class="logo-img">
+        </a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#why">Why Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact" class="nav-cta">Enroll Now</a>
+            <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <!-- Floating Math Symbols -->
+        <div class="math-float" aria-hidden="true">
+            <span class="math-sym" style="left:5%;font-size:64px;animation-duration:14s;animation-delay:0s;">∑</span>
+            <span class="math-sym" style="left:12%;font-size:40px;animation-duration:18s;animation-delay:2s;">π</span>
+            <span class="math-sym" style="left:22%;font-size:52px;animation-duration:12s;animation-delay:5s;">∫</span>
+            <span class="math-sym" style="left:33%;font-size:36px;animation-duration:20s;animation-delay:1s;">√x</span>
+            <span class="math-sym" style="left:45%;font-size:56px;animation-duration:16s;animation-delay:7s;">Δ</span>
+            <span class="math-sym" style="left:57%;font-size:44px;animation-duration:13s;animation-delay:3s;">θ</span>
+            <span class="math-sym" style="left:67%;font-size:60px;animation-duration:17s;animation-delay:6s;">∞</span>
+            <span class="math-sym" style="left:76%;font-size:38px;animation-duration:15s;animation-delay:4s;">α²</span>
+            <span class="math-sym" style="left:85%;font-size:50px;animation-duration:11s;animation-delay:9s;">λ</span>
+            <span class="math-sym" style="left:92%;font-size:42px;animation-duration:19s;animation-delay:1.5s;">μ</span>
+            <span class="math-sym"
+                style="left:3%;font-size:34px;animation-duration:22s;animation-delay:11s;color:rgba(230,57,70,.07);">x²+y²=r²</span>
+            <span class="math-sym"
+                style="left:50%;font-size:30px;animation-duration:24s;animation-delay:8s;color:rgba(230,57,70,.07);">ax²+bx+c=0</span>
+            <span class="math-sym"
+                style="left:75%;font-size:28px;animation-duration:21s;animation-delay:13s;color:rgba(230,57,70,.07);">e=mc²</span>
+        </div>
+        <!-- Floating Math Tools -->
+        <div class="math-tools" aria-hidden="true">
+
+            <!-- Compass -->
+            <div class="math-tool" style="left:8%;animation-duration:18s;animation-delay:0s;">
+                <svg width="54" height="70" viewBox="0 0 54 70" fill="none">
+                    <line x1="27" y1="0" x2="14" y2="55" stroke="rgba(230,57,70,0.35)" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="27" y1="0" x2="40" y2="55" stroke="rgba(230,57,70,0.35)" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <circle cx="27" cy="9" r="5" fill="rgba(230,57,70,0.25)" stroke="rgba(230,57,70,0.5)"
+                        stroke-width="1.5" />
+                    <circle cx="27" cy="9" r="2" fill="rgba(230,57,70,0.6)" />
+                    <line x1="17" y1="34" x2="37" y2="34" stroke="rgba(230,57,70,0.3)" stroke-width="1.5" />
+                    <polygon points="14,55 10,68 18,60" fill="rgba(230,57,70,0.4)" />
+                    <circle cx="40" cy="58" r="3.5" fill="none" stroke="rgba(230,57,70,0.4)" stroke-width="1.5" />
+                </svg>
+            </div>
+
+            <!-- Ruler -->
+            <div class="math-tool" style="left:20%;animation-duration:22s;animation-delay:4s;">
+                <svg width="130" height="34" viewBox="0 0 130 34" fill="none">
+                    <rect x="1" y="1" width="128" height="32" rx="4" fill="rgba(230,57,70,0.06)"
+                        stroke="rgba(230,57,70,0.35)" stroke-width="1.5" />
+                    <line x1="15" y1="1" x2="15" y2="16" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <line x1="28" y1="1" x2="28" y2="10" stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <line x1="41" y1="1" x2="41" y2="16" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <line x1="54" y1="1" x2="54" y2="10" stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <line x1="67" y1="1" x2="67" y2="20" stroke="rgba(230,57,70,0.55)" stroke-width="1.4" />
+                    <line x1="80" y1="1" x2="80" y2="10" stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <line x1="93" y1="1" x2="93" y2="16" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <line x1="106" y1="1" x2="106" y2="10" stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <line x1="119" y1="1" x2="119" y2="16" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <text x="62" y="30" text-anchor="middle" fill="rgba(230,57,70,0.35)" font-size="9"
+                        font-family="Outfit,sans-serif" font-weight="600">cm</text>
+                </svg>
+            </div>
+
+            <!-- Protractor -->
+            <div class="math-tool" style="left:44%;animation-duration:20s;animation-delay:7s;">
+                <svg width="80" height="44" viewBox="0 0 80 44" fill="none">
+                    <path d="M 4 42 A 36 36 0 0 1 76 42" stroke="rgba(230,57,70,0.45)" stroke-width="2"
+                        fill="rgba(230,57,70,0.05)" />
+                    <line x1="4" y1="42" x2="76" y2="42" stroke="rgba(230,57,70,0.3)" stroke-width="1.5" />
+                    <!-- tick marks -->
+                    <line x1="40" y1="6" x2="40" y2="14" stroke="rgba(230,57,70,0.5)" stroke-width="1.2" />
+                    <line x1="22" y1="10" x2="25" y2="17" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="58" y1="10" x2="55" y2="17" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="10" y1="22" x2="17" y2="25" stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <line x1="70" y1="22" x2="63" y2="25" stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <!-- center dot -->
+                    <circle cx="40" cy="42" r="3" fill="rgba(230,57,70,0.5)" />
+                    <!-- angle line -->
+                    <line x1="40" y1="42" x2="65" y2="16" stroke="rgba(230,57,70,0.45)" stroke-width="1.5"
+                        stroke-dasharray="3 2" />
+                    <!-- 90° label -->
+                    <text x="37" y="24" fill="rgba(230,57,70,0.45)" font-size="8" font-family="Outfit,sans-serif"
+                        font-weight="700">90°</text>
+                </svg>
+            </div>
+
+            <!-- Set Square / Triangle -->
+            <div class="math-tool" style="left:63%;animation-duration:25s;animation-delay:2s;">
+                <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+                    <polygon points="5,65 65,65 5,5" fill="rgba(230,57,70,0.05)" stroke="rgba(230,57,70,0.4)"
+                        stroke-width="2" stroke-linejoin="round" />
+                    <!-- right angle mark -->
+                    <polyline points="5,48 18,48 18,65" stroke="rgba(230,57,70,0.4)" stroke-width="1.5" fill="none" />
+                    <!-- tick marks on hypotenuse -->
+                    <line x1="22" y1="37" x2="27" y2="32" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="35" y1="50" x2="40" y2="45" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <!-- 45° label -->
+                    <text x="28" y="62" fill="rgba(230,57,70,0.4)" font-size="9" font-family="Outfit,sans-serif"
+                        font-weight="600">45°</text>
+                </svg>
+            </div>
+
+            <!-- Calculator -->
+            <div class="math-tool" style="left:80%;animation-duration:21s;animation-delay:10s;">
+                <svg width="44" height="58" viewBox="0 0 44 58" fill="none">
+                    <rect x="1" y="1" width="42" height="56" rx="5" fill="rgba(230,57,70,0.05)"
+                        stroke="rgba(230,57,70,0.35)" stroke-width="1.5" />
+                    <!-- screen -->
+                    <rect x="6" y="6" width="32" height="14" rx="2" fill="rgba(230,57,70,0.12)"
+                        stroke="rgba(230,57,70,0.25)" stroke-width="1" />
+                    <text x="30" y="18" text-anchor="end" fill="rgba(230,57,70,0.5)" font-size="9"
+                        font-family="Outfit,sans-serif" font-weight="700">3.14</text>
+                    <!-- buttons row 1 -->
+                    <rect x="6" y="25" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.15)" />
+                    <rect x="15" y="25" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.15)" />
+                    <rect x="24" y="25" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.15)" />
+                    <rect x="33" y="25" width="5" height="6" rx="1.5" fill="rgba(230,57,70,0.3)" />
+                    <!-- buttons row 2 -->
+                    <rect x="6" y="34" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                    <rect x="15" y="34" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                    <rect x="24" y="34" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                    <rect x="33" y="34" width="5" height="6" rx="1.5" fill="rgba(230,57,70,0.3)" />
+                    <!-- buttons row 3 -->
+                    <rect x="6" y="43" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                    <rect x="15" y="43" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                    <rect x="24" y="43" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                    <rect x="33" y="43" width="5" height="13" rx="1.5" fill="rgba(230,57,70,0.4)" />
+                    <!-- 0 button -->
+                    <rect x="6" y="50" width="16" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                    <rect x="24" y="50" width="7" height="6" rx="1.5" fill="rgba(230,57,70,0.1)" />
+                </svg>
+            </div>
+
+            <!-- Pencil -->
+            <div class="math-tool" style="left:33%;animation-duration:16s;animation-delay:14s;">
+                <svg width="16" height="72" viewBox="0 0 16 72" fill="none">
+                    <rect x="2" y="8" width="12" height="52" rx="2" fill="rgba(230,57,70,0.07)"
+                        stroke="rgba(230,57,70,0.4)" stroke-width="1.5" />
+                    <!-- eraser -->
+                    <rect x="2" y="1" width="12" height="9" rx="2" fill="rgba(230,57,70,0.25)"
+                        stroke="rgba(230,57,70,0.4)" stroke-width="1" />
+                    <!-- tip -->
+                    <polygon points="2,60 14,60 8,72" fill="rgba(230,57,70,0.35)" />
+                    <!-- tip point -->
+                    <polygon points="5,66 11,66 8,72" fill="rgba(230,57,70,0.7)" />
+                    <!-- lines on body -->
+                    <line x1="2" y1="18" x2="14" y2="18" stroke="rgba(230,57,70,0.2)" stroke-width="1" />
+                    <line x1="2" y1="28" x2="14" y2="28" stroke="rgba(230,57,70,0.2)" stroke-width="1" />
+                    <line x1="2" y1="38" x2="14" y2="38" stroke="rgba(230,57,70,0.2)" stroke-width="1" />
+                </svg>
+            </div>
+
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge reveal">🔥 Est. 2006 · 19 Years of Excellence</div>
+            <h1 class="reveal">Empowering<br><span class="accent">Future Engineers</span></h1>
+            <p class="reveal">All Branch · All Subject Polytechnic & Engineering Coaching in Latur</p>
+            <div class="hero-buttons reveal">
+                <a href="#contact" class="btn-primary">Enroll Now →</a>
+                <a href="#about" class="btn-ghost">Learn More</a>
+            </div>
+            <div class="hero-stats reveal">
+                <div class="stat">
+                    <div class="stat-num">19<span>+</span></div>
+                    <div class="stat-label">Years Since 2006</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-num">500<span>+</span></div>
+                    <div class="stat-label">Students Coached</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-num">4.5<span>★</span></div>
+                    <div class="stat-label">JustDial Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULA BAND -->
+    <div class="formula-band" aria-hidden="true">
+        <div class="formula-track">
+            <!-- first set -->
+            <div class="formula-pill"><span>∑ nᵢ = N</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>∫₀^∞ e⁻ˣ dx = 1</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>a² + b² = c²</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>ax² + bx + c = 0</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>e^(iπ) + 1 = 0</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>∇² φ = ρ/ε₀</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>d/dx (sinx) = cosx</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>lim x→0 (sinx/x) = 1</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>F = ma</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>P(A∩B) = P(A)·P(B)</span><span class="sep"></span></div>
+            <!-- duplicate for infinite scroll -->
+            <div class="formula-pill"><span>∑ nᵢ = N</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>∫₀^∞ e⁻ˣ dx = 1</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>a² + b² = c²</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>ax² + bx + c = 0</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>e^(iπ) + 1 = 0</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>∇² φ = ρ/ε₀</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>d/dx (sinx) = cosx</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>lim x→0 (sinx/x) = 1</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>F = ma</span><span class="sep"></span></div>
+            <div class="formula-pill"><span>P(A∩B) = P(A)·P(B)</span><span class="sep"></span></div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:4%;top:20%;font-size:72px;animation-duration:28s;animation-delay:0s;">π</span>
+            <span class="sec-sym"
+                style="left:88%;top:15%;font-size:56px;animation-duration:32s;animation-delay:6s;">∑</span>
+            <span class="sec-sym"
+                style="left:50%;top:60%;font-size:42px;animation-duration:25s;animation-delay:3s;">∞</span>
+            <!-- Pencil SVG -->
+            <div class="sec-tool" style="right:5%;top:50%;animation-duration:30s;animation-delay:8s;">
+                <svg width="14" height="60" viewBox="0 0 16 72" fill="none">
+                    <rect x="2" y="8" width="12" height="52" rx="2" fill="rgba(230,57,70,0.08)"
+                        stroke="rgba(230,57,70,0.3)" stroke-width="1.5" />
+                    <rect x="2" y="1" width="12" height="9" rx="2" fill="rgba(230,57,70,0.2)"
+                        stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <polygon points="2,60 14,60 8,72" fill="rgba(230,57,70,0.3)" />
+                    <polygon points="5,66 11,66 8,72" fill="rgba(230,57,70,0.6)" />
+                </svg>
+            </div>
+            <!-- Ruler SVG -->
+            <div class="sec-tool" style="left:3%;bottom:10%;animation-duration:35s;animation-delay:12s;">
+                <svg width="100" height="26" viewBox="0 0 130 34" fill="none">
+                    <rect x="1" y="1" width="128" height="32" rx="4" fill="rgba(230,57,70,0.05)"
+                        stroke="rgba(230,57,70,0.25)" stroke-width="1.5" />
+                    <line x1="20" y1="1" x2="20" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="45" y1="1" x2="45" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="67" y1="1" x2="67" y2="18" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <line x1="90" y1="1" x2="90" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="112" y1="1" x2="112" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                </svg>
+            </div>
+        </div>
+        <div class="about-inner">
+            <div class="about-image-wrap reveal">
+                <img src=" photo_2026-02-21_01-22-57.jpg" alt="Umate Sir">
+            </div>
+            <div class="about-text">
+                <span class="section-label reveal">About Us</span>
+                <h2 class="section-title reveal">Meet Umate Sir</h2>
+                <p class="reveal">Established in <strong>2006</strong>, Umate Maths Classes has been one of Latur's most
+                    <strong>trusted Polytechnic & Engineering coaching institutes</strong> for 19 years — with
+                    consistent district rankers and excellent results.
+                </p>
+                <p class="reveal">Our methodology blends concept clarity with rigorous practice. Rated <strong>4.5★ on
+                        JustDial</strong> by students & parents across 20 reviews.</p>
+                <div class="about-highlights">
+                    <div class="highlight-item reveal">
+                        <div class="highlight-icon">📍</div>
+                        <div class="highlight-text"><strong>Our Location</strong><span>Latur Xerox Building, Nandi Stop,
+                                Near Nandi Mobile Shop, Ausa Road, Latur – 413531, Maharashtra</span></div>
+                    </div>
+                    <div class="highlight-item reveal">
+                        <div class="highlight-icon">📚</div>
+                        <div class="highlight-text"><strong>Courses Offered</strong><span>Maths · Engineering · Diploma
+                                · Polytechnic · Engineering Entrance</span></div>
+                    </div>
+                    <div class="highlight-item reveal">
+                        <div class="highlight-icon">⭐</div>
+                        <div class="highlight-text"><strong>JustDial Verified</strong><span>4.5 / 5 rating · 20 reviews
+                                · Trusted since 2006</span></div>
+                    </div>
+                    <div class="highlight-item reveal">
+                        <div class="highlight-icon">🎓</div>
+                        <div class="highlight-text"><strong>Exam Preparation</strong><span>Engineering Entrance,
+                                Engineering Maths, Board Exams</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SHOWCASE -->
+    <section id="video-section">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:2%;top:35%;font-size:100px;animation-duration:36s;animation-delay:0s;">∑</span>
+            <span class="sec-sym"
+                style="right:3%;top:20%;font-size:84px;animation-duration:30s;animation-delay:6s;">π</span>
+            <!-- Ruler -->
+            <div class="sec-tool" style="left:5%;bottom:8%;animation-duration:32s;animation-delay:10s;">
+                <svg width="110" height="30" viewBox="0 0 130 34" fill="none">
+                    <rect x="1" y="1" width="128" height="32" rx="4" fill="rgba(230,57,70,0.05)"
+                        stroke="rgba(230,57,70,0.25)" stroke-width="1.5" />
+                    <line x1="20" y1="1" x2="20" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="45" y1="1" x2="45" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="67" y1="1" x2="67" y2="18" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <line x1="90" y1="1" x2="90" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="112" y1="1" x2="112" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                </svg>
+            </div>
+        </div>
+        <div class="video-inner">
+            <span class="section-label reveal">Watch &amp; Learn</span>
+            <h2 class="section-title reveal">Inside <span style="color:var(--red)">Umate Maths Classes</span></h2>
+            <p class="section-sub reveal">See our classroom, infrastructure, and what makes every session special.</p>
+
+            <!-- 3-Column: bullets | video | bullets -->
+            <div class="vf-layout reveal">
+
+                <!-- Left bullets -->
+                <div class="vf-col vf-left">
+                    <div class="vf-item">
+                        <div class="vf-item-text right">
+                            <span class="vf-icon">📺</span>
+                            <h4>Smart Board</h4>
+                            <p>Interactive digital board for visual concept delivery</p>
+                        </div>
+                        <div class="vf-dot"></div>
+                    </div>
+                    <div class="vf-item">
+                        <div class="vf-item-text right">
+                            <span class="vf-icon">📚</span>
+                            <h4>Study Material</h4>
+                            <p>Custom notes, sheets &amp; practice sets — included free</p>
+                        </div>
+                        <div class="vf-dot"></div>
+                    </div>
+                    <div class="vf-item">
+                        <div class="vf-item-text right">
+                            <span class="vf-icon">📝</span>
+                            <h4>Weekly Exams</h4>
+                            <p>Chapter-wise &amp; cumulative tests every week</p>
+                        </div>
+                        <div class="vf-dot"></div>
+                    </div>
+                </div>
+
+                <!-- Center Video -->
+                <div class="vf-video-col">
+                    <div class="vf-video-wrap">
+                        <video src="video2.mp4" controls muted autoplay loop playsinline preload="metadata"
+                            aria-label="Umate Maths Classes introduction video"></video>
+                    </div>
+                </div>
+
+                <!-- Right bullets -->
+                <div class="vf-col vf-right">
+                    <div class="vf-item">
+                        <div class="vf-dot"></div>
+                        <div class="vf-item-text left">
+                            <span class="vf-icon">💬</span>
+                            <h4>Doubt Sessions</h4>
+                            <p>Dedicated clearing sessions after every lecture</p>
+                        </div>
+                    </div>
+                    <div class="vf-item">
+                        <div class="vf-dot"></div>
+                        <div class="vf-item-text left">
+                            <span class="vf-icon">🤳</span>
+                            <h4>Biometric Attendance</h4>
+                            <p>Fingerprint-based attendance, parents stay informed</p>
+                        </div>
+                    </div>
+                    <div class="vf-item">
+                        <div class="vf-dot"></div>
+                        <div class="vf-item-text left">
+                            <span class="vf-icon">🧠</span>
+                            <h4>Group Discussions</h4>
+                            <p>Collaborative problem-solving builds real confidence</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- WHY US -->
+    <section id="why">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:2%;top:30%;font-size:80px;animation-duration:30s;animation-delay:2s;">Δ</span>
+            <span class="sec-sym"
+                style="right:3%;top:10%;font-size:64px;animation-duration:26s;animation-delay:9s;">θ</span>
+            <span class="sec-sym"
+                style="left:48%;top:70%;font-size:50px;animation-duration:22s;animation-delay:4s;">λ</span>
+            <!-- Set Square -->
+            <div class="sec-tool" style="right:8%;bottom:15%;animation-duration:28s;animation-delay:6s;">
+                <svg width="60" height="60" viewBox="0 0 70 70" fill="none">
+                    <polygon points="5,65 65,65 5,5" fill="rgba(230,57,70,0.05)" stroke="rgba(230,57,70,0.3)"
+                        stroke-width="1.8" stroke-linejoin="round" />
+                    <polyline points="5,48 18,48 18,65" stroke="rgba(230,57,70,0.3)" stroke-width="1.2" fill="none" />
+                    <text x="28" y="62" fill="rgba(230,57,70,0.3)" font-size="9" font-family="Outfit,sans-serif"
+                        font-weight="600">45°</text>
+                </svg>
+            </div>
+            <!-- Protractor -->
+            <div class="sec-tool" style="left:6%;top:15%;animation-duration:32s;animation-delay:14s;">
+                <svg width="70" height="38" viewBox="0 0 80 44" fill="none">
+                    <path d="M 4 42 A 36 36 0 0 1 76 42" stroke="rgba(230,57,70,0.35)" stroke-width="1.8"
+                        fill="rgba(230,57,70,0.04)" />
+                    <line x1="4" y1="42" x2="76" y2="42" stroke="rgba(230,57,70,0.25)" stroke-width="1.2" />
+                    <line x1="40" y1="6" x2="40" y2="14" stroke="rgba(230,57,70,0.4)" stroke-width="1" />
+                    <circle cx="40" cy="42" r="2.5" fill="rgba(230,57,70,0.4)" />
+                    <line x1="40" y1="42" x2="65" y2="16" stroke="rgba(230,57,70,0.35)" stroke-width="1.2"
+                        stroke-dasharray="3 2" />
+                </svg>
+            </div>
+        </div>
+        <div style="text-align:center;margin-bottom:14px;"><span class="section-label reveal">Why Choose Us</span></div>
+        <h2 class="section-title reveal" style="text-align:center;">What Sets Us Apart</h2>
+        <p class="section-sub reveal" style="text-align:center;margin:0 auto 56px;">We don't just teach — we build
+            confidence, clarity, and champions.</p>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="card-emoji">🎯</div>
+                <h3>All Branches Covered</h3>
+                <p>Maths, Engineering, Diploma, Polytechnic & Engineering Entrance — all under one roof since 2006.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="card-emoji">⭐</div>
+                <h3>4.5★ on JustDial</h3>
+                <p>Rated 4.5/5 with 20 reviews by students & parents. <a
+                        href="https://www.justdial.com/Latur/Umate-Maths-Classes-Near-Nandi-Mobile-Shop-Ausa-Road/9999P2382-2382-150322130021-I3C2_BZDET"
+                        target="_blank" style="color:var(--red);">See reviews →</a></p>
+            </div>
+            <div class="why-card reveal">
+                <div class="card-emoji">📈</div>
+                <h3>19 Years of Results</h3>
+                <p>Established 2006 — nearly two decades of district rankers and outstanding academic performance.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="card-emoji">🤝</div>
+                <h3>Personal Attention</h3>
+                <p>Small batches ensure every student gets individualized guidance and doubt resolution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATH VISUAL -->
+    <section id="math-visual">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:5%;top:40%;font-size:88px;animation-duration:35s;animation-delay:0s;">∫</span>
+            <span class="sec-sym"
+                style="right:4%;top:55%;font-size:70px;animation-duration:29s;animation-delay:7s;">√</span>
+            <span class="sec-sym"
+                style="left:50%;top:10%;font-size:50px;animation-duration:24s;animation-delay:4s;">α</span>
+            <!-- Compass -->
+            <div class="sec-tool" style="right:6%;top:20%;animation-duration:32s;animation-delay:10s;">
+                <svg width="46" height="60" viewBox="0 0 54 70" fill="none">
+                    <line x1="27" y1="0" x2="14" y2="55" stroke="rgba(230,57,70,0.3)" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="27" y1="0" x2="40" y2="55" stroke="rgba(230,57,70,0.3)" stroke-width="2"
+                        stroke-linecap="round" />
+                    <circle cx="27" cy="9" r="4" fill="rgba(230,57,70,0.2)" stroke="rgba(230,57,70,0.4)"
+                        stroke-width="1.2" />
+                    <line x1="17" y1="34" x2="37" y2="34" stroke="rgba(230,57,70,0.25)" stroke-width="1.2" />
+                    <polygon points="14,55 10,68 18,60" fill="rgba(230,57,70,0.35)" />
+                    <circle cx="40" cy="58" r="3" fill="none" stroke="rgba(230,57,70,0.35)" stroke-width="1.2" />
+                </svg>
+            </div>
+        </div>
+        <!-- SVG Geometry Illustration -->
+        <div class="math-svg-wrap reveal">
+            <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Math geometry illustration">
+                <!-- Background circle -->
+                <circle cx="170" cy="170" r="160" stroke="rgba(230,57,70,0.08)" stroke-width="1" fill="none" />
+                <circle cx="170" cy="170" r="120" stroke="rgba(230,57,70,0.12)" stroke-width="1" fill="none" />
+                <circle cx="170" cy="170" r="80" stroke="rgba(230,57,70,0.18)" stroke-width="1" fill="none" />
+                <!-- Triangle (Pythagorean) -->
+                <polygon points="170,50 290,270 50,270" stroke="#e63946" stroke-width="2" fill="rgba(230,57,70,0.06)"
+                    stroke-linejoin="round" />
+                <!-- Right angle mark -->
+                <polyline points="50,252 68,252 68,270" stroke="#e63946" stroke-width="1.5" fill="none" />
+                <!-- a² + b² = c² label -->
+                <text x="170" y="235" text-anchor="middle" fill="#e63946" font-size="13"
+                    font-family="Playfair Display, serif" font-style="italic" font-weight="700">a² + b² = c²</text>
+                <!-- Sine curve -->
+                <path d="M 50 170 Q 80 120 110 170 Q 140 220 170 170 Q 200 120 230 170 Q 260 220 290 170"
+                    stroke="rgba(230,57,70,0.5)" stroke-width="1.8" fill="none" />
+                <!-- axis line -->
+                <line x1="40" y1="170" x2="300" y2="170" stroke="rgba(230,57,70,0.2)" stroke-width="1"
+                    stroke-dasharray="4 4" />
+                <!-- Integral symbol area -->
+                <path d="M 110 100 Q 100 170 110 240" stroke="rgba(230,57,70,0.35)" stroke-width="2" fill="none" />
+                <path d="M 230 100 Q 240 170 230 240" stroke="rgba(230,57,70,0.35)" stroke-width="2" fill="none" />
+                <!-- pi symbol -->
+                <text x="148" y="108" fill="rgba(230,57,70,0.5)" font-size="22" font-family="Playfair Display,serif"
+                    font-style="italic">π</text>
+                <!-- Sigma symbol -->
+                <text x="155" y="300" fill="rgba(230,57,70,0.4)" font-size="20" font-family="Playfair Display,serif"
+                    font-style="italic">∑</text>
+                <!-- Corner annotations -->
+                <text x="40" y="268" fill="rgba(230,57,70,0.45)" font-size="11" font-family="Playfair Display,serif"
+                    font-style="italic">b</text>
+                <text x="283" y="268" fill="rgba(230,57,70,0.45)" font-size="11" font-family="Playfair Display,serif"
+                    font-style="italic">a</text>
+                <text x="215" y="145" fill="rgba(230,57,70,0.55)" font-size="11" font-family="Playfair Display,serif"
+                    font-style="italic">c</text>
+                <!-- derivative label -->
+                <text x="55" y="155" fill="rgba(230,57,70,0.38)" font-size="10" font-family="Playfair Display,serif"
+                    font-style="italic">y = sinx</text>
+                <!-- Dot at center -->
+                <circle cx="170" cy="170" r="4" fill="#e63946" opacity="0.6" />
+                <!-- radii lines -->
+                <line x1="170" y1="170" x2="170" y2="50" stroke="rgba(230,57,70,0.2)" stroke-width="1"
+                    stroke-dasharray="3 3" />
+                <line x1="170" y1="170" x2="290" y2="270" stroke="rgba(230,57,70,0.2)" stroke-width="1"
+                    stroke-dasharray="3 3" />
+            </svg>
+        </div>
+
+        <!-- Text + Concept Cards -->
+        <div class="math-visual-text">
+            <span class="section-label reveal">Our Subjects</span>
+            <h2 class="section-title reveal">Built on Strong <span style="color:var(--red)">Mathematical</span>
+                Foundations</h2>
+            <p class="reveal" style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:0;">We cover every
+                core concept — from algebra and trigonometry to engineering calculus and beyond. Our teaching transforms
+                abstract theory into real exam performance.</p>
+            <div class="math-concept-grid">
+                <div class="math-concept-card reveal">
+                    <div class="mc-sym">∫ dx</div>
+                    <div class="mc-label">Calculus & Integration</div>
+                </div>
+                <div class="math-concept-card reveal">
+                    <div class="mc-sym">a² + b²</div>
+                    <div class="mc-label">Algebra & Geometry</div>
+                </div>
+                <div class="math-concept-card reveal">
+                    <div class="mc-sym">sinθ / cosθ</div>
+                    <div class="mc-label">Trigonometry</div>
+                </div>
+                <div class="math-concept-card reveal">
+                    <div class="mc-sym">∑ aₙ</div>
+                    <div class="mc-label">Series & Statistics</div>
+                </div>
+                <div class="math-concept-card reveal">
+                    <div class="mc-sym">d/dx</div>
+                    <div class="mc-label">Differentiation</div>
+                </div>
+                <div class="math-concept-card reveal">
+                    <div class="mc-sym">P(A|B)</div>
+                    <div class="mc-label">Probability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:3%;top:25%;font-size:68px;animation-duration:27s;animation-delay:3s;">μ</span>
+            <span class="sec-sym"
+                style="right:4%;top:50%;font-size:54px;animation-duration:31s;animation-delay:8s;">ω</span>
+            <span class="sec-sym"
+                style="left:52%;top:70%;font-size:46px;animation-duration:23s;animation-delay:1s;">β</span>
+            <!-- Calculator mini -->
+            <div class="sec-tool" style="left:5%;bottom:5%;animation-duration:29s;animation-delay:11s;">
+                <svg width="36" height="48" viewBox="0 0 44 58" fill="none">
+                    <rect x="1" y="1" width="42" height="56" rx="5" fill="rgba(230,57,70,0.04)"
+                        stroke="rgba(230,57,70,0.28)" stroke-width="1.2" />
+                    <rect x="5" y="5" width="34" height="13" rx="2" fill="rgba(230,57,70,0.1)" />
+                    <text x="28" y="16" text-anchor="end" fill="rgba(230,57,70,0.4)" font-size="8"
+                        font-family="Outfit,sans-serif">3.14</text>
+                    <rect x="5" y="23" width="7" height="5" rx="1" fill="rgba(230,57,70,0.12)" />
+                    <rect x="14" y="23" width="7" height="5" rx="1" fill="rgba(230,57,70,0.12)" />
+                    <rect x="23" y="23" width="7" height="5" rx="1" fill="rgba(230,57,70,0.12)" />
+                    <rect x="32" y="23" width="6" height="5" rx="1" fill="rgba(230,57,70,0.25)" />
+                    <rect x="5" y="32" width="7" height="5" rx="1" fill="rgba(230,57,70,0.09)" />
+                    <rect x="14" y="32" width="7" height="5" rx="1" fill="rgba(230,57,70,0.09)" />
+                    <rect x="23" y="32" width="7" height="5" rx="1" fill="rgba(230,57,70,0.09)" />
+                    <rect x="32" y="32" width="6" height="12" rx="1" fill="rgba(230,57,70,0.35)" />
+                    <rect x="5" y="41" width="16" height="5" rx="1" fill="rgba(230,57,70,0.09)" />
+                    <rect x="23" y="41" width="7" height="5" rx="1" fill="rgba(230,57,70,0.09)" />
+                </svg>
+            </div>
+        </div>
+        <span class="section-label reveal">Our Work</span>
+        <h2 class="section-title reveal">Achievements & Gallery</h2>
+        <p class="section-sub reveal">A glimpse into our classroom, results, and proud moments.</p>
+        <!-- Image Carousel -->
+        <div class="gallery-carousel reveal" id="galleryCarousel">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src=" photo_2026-02-21_01-22-44.jpg" alt="Classroom Sessions" loading="lazy">
+                    <div class="carousel-slide-overlay">📚 Classroom Sessions</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src=" photo_2026-02-21_01-22-57.jpg" alt="Umate Sir Teaching" loading="lazy">
+                    <div class="carousel-slide-overlay">🎓 Umate Sir — Expert Teaching</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src=" photo_2026-02-21_01-23-01.jpg" alt="Students at Work" loading="lazy">
+                    <div class="carousel-slide-overlay">✏️ Students at Work</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src=" photo_2026-02-21_01-23-07.jpg" alt="Our Students" loading="lazy">
+                    <div class="carousel-slide-overlay">👥 Our Students</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src=" result1.png" alt="Student Results" loading="lazy">
+                    <div class="carousel-slide-overlay">🏆 Student Results &amp; Achievements</div>
+                </div>
+            </div>
+            <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous slide">&#8592;</button>
+            <button class="carousel-btn next" id="carouselNext" aria-label="Next slide">&#8594;</button>
+        </div>
+        <!-- Carousel Dots -->
+        <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" aria-label="Slide 1"></button>
+            <button class="carousel-dot" aria-label="Slide 2"></button>
+            <button class="carousel-dot" aria-label="Slide 3"></button>
+            <button class="carousel-dot" aria-label="Slide 4"></button>
+            <button class="carousel-dot" aria-label="Slide 5"></button>
+        </div>
+    </section>
+
+
+
+    <!-- QUOTE -->
+    <section class="quote-section reveal">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:3%;top:30%;font-size:82px;animation-duration:34s;animation-delay:0s;">∞</span>
+            <span class="sec-sym"
+                style="right:4%;top:50%;font-size:66px;animation-duration:28s;animation-delay:7s;">π</span>
+            <!-- Set Square -->
+            <div class="sec-tool" style="right:10%;top:10%;animation-duration:30s;animation-delay:3s;">
+                <svg width="55" height="55" viewBox="0 0 70 70" fill="none">
+                    <polygon points="5,65 65,65 5,5" fill="rgba(230,57,70,0.05)" stroke="rgba(230,57,70,0.28)"
+                        stroke-width="1.8" stroke-linejoin="round" />
+                    <polyline points="5,48 18,48 18,65" stroke="rgba(230,57,70,0.28)" stroke-width="1.2" fill="none" />
+                </svg>
+            </div>
+            <!-- Compass -->
+            <div class="sec-tool" style="left:5%;bottom:5%;animation-duration:38s;animation-delay:12s;">
+                <svg width="40" height="52" viewBox="0 0 54 70" fill="none">
+                    <line x1="27" y1="0" x2="14" y2="55" stroke="rgba(230,57,70,0.28)" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="27" y1="0" x2="40" y2="55" stroke="rgba(230,57,70,0.28)" stroke-width="2"
+                        stroke-linecap="round" />
+                    <circle cx="27" cy="9" r="4" fill="rgba(230,57,70,0.18)" stroke="rgba(230,57,70,0.38)"
+                        stroke-width="1.2" />
+                    <line x1="17" y1="34" x2="37" y2="34" stroke="rgba(230,57,70,0.2)" stroke-width="1.2" />
+                    <polygon points="14,55 10,68 18,60" fill="rgba(230,57,70,0.3)" />
+                </svg>
+            </div>
+        </div>
+        <p class="quote-text">"Pure mathematics is, in its way, the poetry of logical ideas."</p>
+        <p class="quote-author">— Albert Einstein</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:2%;top:35%;font-size:76px;animation-duration:33s;animation-delay:1s;">∇</span>
+            <span class="sec-sym"
+                style="right:3%;top:20%;font-size:58px;animation-duration:27s;animation-delay:8s;">ε</span>
+            <span class="sec-sym"
+                style="left:52%;top:65%;font-size:48px;animation-duration:21s;animation-delay:5s;">σ</span>
+            <!-- Ruler SVG -->
+            <div class="sec-tool" style="right:6%;bottom:12%;animation-duration:34s;animation-delay:14s;">
+                <svg width="90" height="24" viewBox="0 0 130 34" fill="none">
+                    <rect x="1" y="1" width="128" height="32" rx="4" fill="rgba(230,57,70,0.05)"
+                        stroke="rgba(230,57,70,0.25)" stroke-width="1.5" />
+                    <line x1="20" y1="1" x2="20" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="45" y1="1" x2="45" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="67" y1="1" x2="67" y2="18" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <line x1="90" y1="1" x2="90" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="112" y1="1" x2="112" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                </svg>
+            </div>
+            <!-- Protractor minature -->
+            <div class="sec-tool" style="left:5%;top:10%;animation-duration:26s;animation-delay:9s;">
+                <svg width="65" height="36" viewBox="0 0 80 44" fill="none">
+                    <path d="M 4 42 A 36 36 0 0 1 76 42" stroke="rgba(230,57,70,0.3)" stroke-width="1.6"
+                        fill="rgba(230,57,70,0.04)" />
+                    <line x1="4" y1="42" x2="76" y2="42" stroke="rgba(230,57,70,0.22)" stroke-width="1" />
+                    <line x1="40" y1="6" x2="40" y2="14" stroke="rgba(230,57,70,0.38)" stroke-width="1" />
+                    <circle cx="40" cy="42" r="2.5" fill="rgba(230,57,70,0.38)" />
+                </svg>
+            </div>
+        </div>
+        <div style="text-align:center;margin-bottom:14px;"><span class="section-label reveal">FAQ</span></div>
+        <h2 class="section-title reveal" style="text-align:center;">Frequently Asked Questions</h2>
+        <p class="section-sub reveal" style="text-align:center;margin:0 auto 52px;">Everything you need to know about
+            Umate Maths Classes.</p>
+        <div class="faq-list">
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    Which courses are offered at Umate Maths Classes?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    We offer coaching for <strong>Maths, Engineering, Diploma, Polytechnic</strong>, and
+                    <strong>Engineering Entrance Exam</strong> preparation — covering all branches and subjects under
+                    one roof.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    Where is Umate Maths Classes located?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    We are located at <strong>Latur Xerox Building, Nandi Stop, Near Nandi Mobile Shop, Ausa Road, Latur
+                        – 413531, Maharashtra</strong>. Easily accessible from all parts of Latur city.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    How many years of experience does Umate Maths Classes have?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    Umate Maths Classes has been serving students since <strong>2006</strong> — that's over <strong>19
+                        years</strong> of dedicated coaching with a proven track record of district rankers and top
+                    performers.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    What is the student rating on JustDial?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    We are rated <strong>4.5 out of 5</strong> on JustDial with <strong>20 verified reviews</strong>
+                    from students and parents. You can <a
+                        href="https://www.justdial.com/Latur/Umate-Maths-Classes-Near-Nandi-Mobile-Shop-Ausa-Road/9999P2382-2382-150322130021-I3C2_BZDET"
+                        target="_blank" style="color:var(--red);font-weight:600;">read all reviews here →</a>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    What are the batch timings?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    We run <strong>Morning and Evening batches from Monday to Saturday</strong>. Please contact us
+                    directly to confirm the latest schedule and available seats for your preferred batch.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    Is coaching available for all engineering branches?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    Yes! We provide coaching for <strong>all branches</strong> of Polytechnic and Engineering, covering
+                    subjects like Applied Maths, Engineering Maths, Applied Sciences, and more.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    How is the quality of teaching at Umate Maths Classes?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    Our faculty brings deep subject expertise and a student-first approach. We maintain <strong>small
+                        batch sizes</strong> to ensure every student gets individual attention, thorough concept
+                    clarity, and regular doubt-solving sessions.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-q" aria-expanded="false">
+                    How do I enroll or enquire?
+                    <i class="faq-icon">+</i>
+                </button>
+                <div class="faq-a">
+                    Simply fill in the <strong>Enquiry Form</strong> on this page, or visit us directly at our Latur
+                    centre. You can also reach us via WhatsApp or phone for quick batch details and fee information.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:2%;top:30%;font-size:74px;animation-duration:31s;animation-delay:2s;">∂</span>
+            <span class="sec-sym"
+                style="right:3%;top:15%;font-size:60px;animation-duration:29s;animation-delay:10s;">φ</span>
+            <span class="sec-sym"
+                style="left:50%;top:72%;font-size:44px;animation-duration:20s;animation-delay:6s;">γ</span>
+            <!-- Pencil SVG -->
+            <div class="sec-tool" style="right:5%;bottom:12%;animation-duration:28s;animation-delay:4s;">
+                <svg width="12" height="54" viewBox="0 0 16 72" fill="none">
+                    <rect x="2" y="8" width="12" height="52" rx="2" fill="rgba(230,57,70,0.07)"
+                        stroke="rgba(230,57,70,0.3)" stroke-width="1.5" />
+                    <rect x="2" y="1" width="12" height="9" rx="2" fill="rgba(230,57,70,0.18)"
+                        stroke="rgba(230,57,70,0.3)" stroke-width="1" />
+                    <polygon points="2,60 14,60 8,72" fill="rgba(230,57,70,0.28)" />
+                    <polygon points="5,66 11,66 8,72" fill="rgba(230,57,70,0.55)" />
+                </svg>
+            </div>
+            <!-- Compass mini -->
+            <div class="sec-tool" style="left:4%;top:18%;animation-duration:36s;animation-delay:15s;">
+                <svg width="42" height="56" viewBox="0 0 54 70" fill="none">
+                    <line x1="27" y1="0" x2="14" y2="55" stroke="rgba(230,57,70,0.28)" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="27" y1="0" x2="40" y2="55" stroke="rgba(230,57,70,0.28)" stroke-width="2"
+                        stroke-linecap="round" />
+                    <circle cx="27" cy="9" r="4" fill="rgba(230,57,70,0.18)" stroke="rgba(230,57,70,0.38)"
+                        stroke-width="1.2" />
+                    <line x1="17" y1="34" x2="37" y2="34" stroke="rgba(230,57,70,0.2)" stroke-width="1.2" />
+                    <polygon points="14,55 10,68 18,60" fill="rgba(230,57,70,0.3)" />
+                </svg>
+            </div>
+        </div>
+        <div class="contact-inner">
+            <div class="contact-info">
+                <span class="section-label reveal">Get In Touch</span>
+                <h2 class="section-title reveal">Enquiry Form</h2>
+                <p class="reveal">Have questions? Reach out directly — we'd love to help.</p>
+                <div class="info-item reveal">
+                    <div class="info-icon">📍</div>
+                    <div class="info-content"><strong>Address</strong><span>Latur Xerox Building, Nandi Stop, Near Nandi
+                            Mobile Shop, Ausa Road, Latur – 413531, Maharashtra</span></div>
+                </div>
+                <div class="info-item reveal">
+                    <div class="info-icon">📞</div>
+                    <div class="info-content"><strong>Phone / WhatsApp</strong><span>Contact us for batch details &
+                            schedules</span></div>
+                </div>
+                <div class="info-item reveal">
+                    <div class="info-icon">🕒</div>
+                    <div class="info-content"><strong>Timings</strong><span>Mon – Sat, Morning & Evening Batches</span>
+                    </div>
+                </div>
+                <div class="info-item reveal">
+                    <div class="info-icon">📅</div>
+                    <div class="info-content"><strong>Established</strong><span>2006 — Serving Latur for 19 Years</span>
+                    </div>
+                </div>
+                <div class="info-item reveal">
+                    <div class="info-icon">⭐</div>
+                    <div class="info-content"><strong>JustDial Rating</strong><span>4.5 / 5 · 20 Reviews &nbsp;<a
+                                href="https://www.justdial.com/Latur/Umate-Maths-Classes-Near-Nandi-Mobile-Shop-Ausa-Road/9999P2382-2382-150322130021-I3C2_BZDET"
+                                target="_blank" style="color:var(--red);font-weight:600;">View on JustDial →</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-card reveal">
+                <h3>Send an Enquiry</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"
+                                required></div>
+                        <div class="form-group"><label>Phone Number</label><input type="tel"
+                                placeholder="+91 00000 00000" required></div>
+                    </div>
+                    <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@email.com">
+                    </div>
+                    <div class="form-group"><label>Message</label><textarea
+                            placeholder="Tell us about your course interest..."></textarea></div>
+                    <button type="submit" class="form-submit">Submit Enquiry →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map-section">
+        <!-- Floating Instruments -->
+        <div class="sec-float" aria-hidden="true">
+            <span class="sec-sym"
+                style="left:3%;top:40%;font-size:70px;animation-duration:32s;animation-delay:2s;">ρ</span>
+            <span class="sec-sym"
+                style="right:5%;top:20%;font-size:56px;animation-duration:26s;animation-delay:9s;">κ</span>
+            <!-- Ruler -->
+            <div class="sec-tool" style="right:8%;bottom:10%;animation-duration:30s;animation-delay:5s;">
+                <svg width="90" height="24" viewBox="0 0 130 34" fill="none">
+                    <rect x="1" y="1" width="128" height="32" rx="4" fill="rgba(230,57,70,0.05)"
+                        stroke="rgba(230,57,70,0.25)" stroke-width="1.5" />
+                    <line x1="20" y1="1" x2="20" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="45" y1="1" x2="45" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="67" y1="1" x2="67" y2="18" stroke="rgba(230,57,70,0.45)" stroke-width="1.2" />
+                    <line x1="90" y1="1" x2="90" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                    <line x1="112" y1="1" x2="112" y2="14" stroke="rgba(230,57,70,0.35)" stroke-width="1" />
+                </svg>
+            </div>
+        </div>
+        <h2 class="section-title reveal">Find Us Here</h2>
+        <div class="map-wrap reveal">
+            <iframe src="https://www.google.com/maps?q=Umate+Maths+Classes+Latur&output=embed" allowfullscreen
+                loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-branding">
+            <h2>UMATE's MATHS</h2>
+            <p>© 2026 Umate Maths Classes · Est. 2006 · Latur, Maharashtra</p>
+        </div>
+    </footer>
+
+    <script>
+        const html = document.documentElement;
+        const themeBtn = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('umate-theme') || 'dark';
+        html.setAttribute('data-theme', saved);
+        themeBtn.textContent = saved === 'dark' ? '🌙' : '☀️';
+        themeBtn.addEventListener('click', () => {
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            themeBtn.textContent = next === 'dark' ? '🌙' : '☀️';
+            localStorage.setItem('umate-theme', next);
+        });
+
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const openMenu = () => { mobileMenu.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow = 'hidden'; };
+        const closeMenu = () => { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow = ''; };
+        hamburger.addEventListener('click', openMenu);
+        mobileClose.addEventListener('click', closeMenu);
+        document.querySelectorAll('.mob-link').forEach(a => a.addEventListener('click', closeMenu));
+
+        // Header Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60));
+
+        // GSAP
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.hero .reveal').forEach((el, i) => gsap.to(el, { opacity: 1, y: 0, duration: .9, delay: i * .15, ease: 'power3.out' }));
+        gsap.utils.toArray(':not(.hero) .reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-q').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const ans = btn.nextElementSibling;
+                const isOpen = item.classList.contains('open');
+                // close all
+                document.querySelectorAll('.faq-item').forEach(fi => {
+                    fi.classList.remove('open');
+                    fi.querySelector('.faq-a').classList.remove('open');
+                    fi.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+                });
+                // open clicked if it was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    ans.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // Counter
+        document.querySelectorAll('.stat-num').forEach(stat => {
+            const target = parseInt(stat.textContent);
+            const suffix = stat.querySelector('span')?.textContent || '';
+            ScrollTrigger.create({
+                trigger: stat, start: 'top 85%', once: true,
+                onEnter: () => {
+                    let cur = 0; const step = target / 40;
+                    const t = setInterval(() => {
+                        cur = Math.min(cur + step, target);
+                        stat.innerHTML = Math.floor(cur) + '<span>' + suffix + '</span>';
+                        if (cur >= target) clearInterval(t);
+                    }, 30);
+                }
+            });
+        });
+
+        // Gallery Carousel
+        (function () {
+            const track = document.getElementById('carouselTrack');
+            const slides = track ? track.children : [];
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+            const dots = document.querySelectorAll('.carousel-dot');
+            let current = 0;
+            let autoTimer;
+
+            function goTo(idx) {
+                current = (idx + slides.length) % slides.length;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+
+            function startAuto() {
+                autoTimer = setInterval(() => goTo(current + 1), 4000);
+            }
+
+            function stopAuto() { clearInterval(autoTimer); }
+
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => { goTo(current - 1); stopAuto(); startAuto(); });
+                nextBtn.addEventListener('click', () => { goTo(current + 1); stopAuto(); startAuto(); });
+            }
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => { goTo(i); stopAuto(); startAuto(); });
+            });
+
+            const carousel = document.getElementById('galleryCarousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', stopAuto);
+                carousel.addEventListener('mouseleave', startAuto);
+            }
+
+            // Keyboard support
+            document.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft') goTo(current - 1);
+                if (e.key === 'ArrowRight') goTo(current + 1);
+            });
+
+            if (slides.length) startAuto();
+        })();
+
+    </script>
+</body>
+
+</html>
